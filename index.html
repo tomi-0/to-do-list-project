@@ -5,37 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Importing Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <!-- Left section -->
-        <div>
+        <div class="left-section">
 
             <!-- Title -->
-            <div>To Do List</div>
+            <div class="project-title">To Do List</div>
 
             <!-- Date -->
-            <div>Mon 18th Oct</div>
+            <div class="date">Mon 18 Oct</div>
 
             <!-- Progress Bar -->
-            <div>
+            <div class="progress-section">
                 Progression
-                <div></div>
+                <div class="progress-bar"></div>
+                <div class="green-progress-bar"></div>
             </div>
+
+            <!-- Cinnamonroll Image-->
+            <img class="cinnamoroll" src="images/cinnamoroll 2.png">
 
         </div>
 
         <!-- Right section-->
-        <div>
+        <div class="right-section">
             <!-- Enter Task -->
-            <div>
+            <div class="enter-task-section">
                 <input type="text" placeholder="Enter Task">
-                <button></button>
+                <button class="add-button"></button>
             </div>
            
             <!-- Tasks -->
-             <div></div>
+             <div class="active-tasks"></div>
         </div>
 
     </main>

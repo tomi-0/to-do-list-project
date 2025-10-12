@@ -1,0 +1,106 @@
+:root {
+    --light-blue: #B7E2F5;
+    --light-pink: #FFC9D2;
+    --dark-pink: #FF7A90;
+    --light-green: #8EEC5C;
+}
+
+body {
+    background-color: var(--light-blue);
+    padding: 40px;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: min-content;
+    column-gap: 60px;
+    overflow: hidden;
+}
+
+.left-section, .right-section {
+    background-color: white;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    overflow: scroll;
+}
+
+.left-section {
+    overflow: hidden;
+    flex-shrink: 1;
+}
+
+.cinnamoroll {
+    height: 400px;
+    scale: calc(1.4);
+}
+
+.project-title {
+    background-color: var(--dark-pink);
+    font-size: 80px;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.date {
+    background-color: var(--light-blue);
+    font-size: 80px;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.progress-section {
+    background-color: var(--light-pink);
+    font-size: 80px;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.progress-bar {
+    margin-top: 20px;
+    height: 80px;
+    background-color: white;
+    display: block;
+    border-radius: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    z-index: 1;
+}
+
+.green-progress-bar {
+    margin-top: 20px;
+    left: 0px;
+    right: 100px;
+    top: 105px;
+    bottom: 30px;
+    background-color: var(--light-green);
+    display: block;
+    border-radius: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+    z-index: 2;
+}
