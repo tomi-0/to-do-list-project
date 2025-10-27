@@ -13,7 +13,7 @@ function renderTasks() {
         generatedHTML += `
          <div class="task">
                 <div class="task-desc">${task.desciption}</div>
-                <button class="completed-button"></button>
+                <button class="completed-button js-completed-button" data-task-id=${task.id}></button>
                 <button class="delete-button js-delete-button" data-task-id=${task.id}></button>
         </div>
     `;
@@ -35,8 +35,6 @@ function renderTasks() {
             tasks.push(newTask);
             // add task to display
             renderTasks();
-            console.log(tasks);
-            console.log(document.querySelectorAll(".js-delete-button"));
         }
         
         // clear input field
@@ -46,28 +44,43 @@ function renderTasks() {
 
     // deletes an existing task
     document.querySelectorAll(".js-delete-button").forEach((deleteButton) => {
-
         deleteButton.addEventListener("click", () => {
             const id = parseInt(deleteButton.dataset.taskId);
-
             tasks = tasks.filter((task) => {
-                if (task.id === id ) {
+                if (task.id === id) {
                     return false 
                 } return true;
-                //console.log("taskId:",task.id);
-                //console.log("id:",id);
             });
-            
-            console.log(tasks);
             renderTasks();
         });
+    });
+
+    // adds a task to completed list
+    document.querySelectorAll(".js-completed-button").forEach((completeButton) => {
+        completeButton.addEventListener("click", () => {
+            // add to completed tasks
+            const id = parseInt(completeButton.dataset.taskId);
+            const newTask = tasks.find( task => task.id === id);
+            completedtasks.push(newTask);
+
+            // remove from tasks
+            tasks = tasks.filter((task) => {
+                if (task.id === id) {
+                    return false 
+                } return true;
+            });
+
+            // re renders to do list
+            renderTasks();
+        })  
+
     });
 }
 
 
 
 
-// adds a task to completed list
+
 
 
 
