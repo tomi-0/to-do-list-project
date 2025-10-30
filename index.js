@@ -1,3 +1,5 @@
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
 // Create array of objects for tasks
 let tasks = []
 const completedtasks = []
@@ -6,6 +8,14 @@ renderTasks();
 
 // render task list
 function renderTasks() {
+    // Displays current date
+    const dateElement = document.querySelector(".js-date");
+    const today = dayjs()
+    const todayFormatted = today.format("ddd DD MMM");
+    console.log(todayFormatted);
+    dateElement.innerHTML = todayFormatted;
+
+    // HTML for each task
     let generatedHTML = ' ';
 
     const tasksElement = document.querySelector(".js-active-tasks");
