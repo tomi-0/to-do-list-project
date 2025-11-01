@@ -9,7 +9,7 @@ body {
     background-color: var(--light-blue);
     font-family: "Pixelify Sans", sans-serif;
     overflow: hidden;
-   
+    word-spacing: 10px;
 }
 
 main {
@@ -107,6 +107,8 @@ main {
     margin-right: 20px;
     position: absolute;
     z-index: 2;
+    width: 0px;
+    transition: width 0.4s;
 }
 
 .right-section {
@@ -114,6 +116,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: left;
+    overflow: scroll;
 }
 
 .enter-task-section {
@@ -131,7 +134,6 @@ main {
 .active-tasks {
     overflow: scroll;
     width: 100%;
-    height: 700px;
 }
 
 input {
@@ -173,7 +175,7 @@ input:focus {
 .task {
     display: flex;
     flex-direction: row;
-    padding: 10px 0px;
+    padding: 10px 10px;
     margin-bottom: 20px;
 }
 

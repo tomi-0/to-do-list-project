@@ -2,7 +2,7 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 // Create array of objects for tasks
 let tasks = []
-const completedtasks = []
+let completedTasks = []
 
 renderTasks();
 
@@ -12,7 +12,6 @@ function renderTasks() {
     const dateElement = document.querySelector(".js-date");
     const today = dayjs()
     const todayFormatted = today.format("ddd DD MMM");
-    console.log(todayFormatted);
     dateElement.innerHTML = todayFormatted;
 
     // HTML for each task
@@ -45,6 +44,7 @@ function renderTasks() {
             tasks.push(newTask);
             // add task to display
             renderTasks();
+            updateProgressBar();
         }
         
         // clear input field
@@ -62,6 +62,7 @@ function renderTasks() {
                 } return true;
             });
             renderTasks();
+            updateProgressBar();
         });
     });
 
@@ -71,7 +72,7 @@ function renderTasks() {
             // add to completed tasks
             const id = parseInt(completeButton.dataset.taskId);
             const newTask = tasks.find( task => task.id === id);
-            completedtasks.push(newTask);
+            completedTasks.push(newTask);
 
             // remove from tasks
             tasks = tasks.filter((task) => {
@@ -80,11 +81,33 @@ function renderTasks() {
                 } return true;
             });
 
-            // re renders to do list
+            // re-renders to do list
             renderTasks();
+            updateProgressBar();
         })  
 
     });
+
+    function updateProgressBar() {
+        // updates progress bar upon deletion and completion
+        // Changes progress bar
+        const progressBarElement = document.querySelector(".js-progress-bar");
+        const activeProgressBarElement = document.querySelector(".js-green-progress-bar");
+
+        // 100% = completedTasks.length + tasks.length
+        const totalTasks = completedTasks.length + tasks.length;
+        const ratio = completedTasks.length / totalTasks;
+
+        // ratio * width pf progress bar
+        activeProgressBarElement.style.width = progressBarElement.offsetWidth * ratio + "px";
+
+        // if no more tasks set progress to 0 and empty completed tasks
+        if (tasks.length === 0) {
+            completedTasks = [];
+        }
+    }
+    
+
 }
 
 
@@ -94,4 +117,3 @@ function renderTasks() {
 
 
 
-// updates progress bar upon deletion and completion
