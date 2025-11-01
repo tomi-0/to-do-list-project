@@ -196,3 +196,16 @@ input:focus {
 .delete-button {
     background-color: var(--dark-pink);
 }
+
+
+/* phone sizes */
+@media screen and (max-width: 1000px) {
+    main {
+        display: inline-block;
+        overflow: scroll;
+    }
+
+    .left-section {
+        margin-bottom: 40px;
+    }
+}
